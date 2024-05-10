@@ -92,3 +92,17 @@ private      Y      N        N       N
 
 ## Inheritance-
 - 'is a'
+- Java does not allow multiple inheritance. Means one subclass cannot extend two parent class. This is also known as diamond problem. Because the child class struggles to understand which parent class to follow.
+
+## Abstract Class-
+- sometimes a class can have some method which is not defined just declared. In that case we need to make that method abstract and also the class an Abstract class. 
+- public abstract method(); --Method declaration
+- public method(){
+     System.out.println("..."); --Method definition
+   }
+### Some points to remember-
+1. You cannot create an object from an abstract class.
+2. If any class extends abstract class, that class needs to define all the declared method from the abstract class.
+3. You can create objects in Java from concrete class.
+
+## Interface-
