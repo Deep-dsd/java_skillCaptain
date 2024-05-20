@@ -84,11 +84,12 @@
 
 
 ## Access Modifier-
-MODIFIER   CLASS PACKAGE SUBCLASS WORLD
-public       Y      Y        Y       Y
-protected    Y      Y        Y       N
-no modifier  Y      Y        N       N
-private      Y      N        N       N
+| MODIFIER    | CLASS | PACKAGE | SUBCLASS | WORLD |
+|-------------|-------|---------|----------|-------|
+| public      | Y     | Y       | Y        | Y     | 
+| protected   | Y     | Y       | Y        | N     |
+| no modifier | Y     | Y       | N        | N     |
+| private     | Y     | N       | N        | N     |
 
 ## Inheritance-
 - 'is a'
@@ -106,3 +107,39 @@ private      Y      N        N       N
 3. You can create objects in Java from concrete class.
 
 ## Interface-
+- interface is used to create a blueprint of a class, it determines the behaviour, what method a class must have etc. 
+- This may sound a bit like abstract class but with interface you can do multiple inheritance. And here all the properties by default are final and static.
+
+## Taking User input in Java-
+- Before diving into how to take user input, let us understand **System.out.println()**. We use this command very often, whenever we want to print something in the console. Now this println() method is doing that job. 
+- This println() method belongs to a class called PrintStream. And the out object is there inside the System class, which is an object of PrintStream class. 
+- Now, If we think, It makes sense If there is an out object, there should be an object which will take user input. 
+- **in** is an in-built object of PrintStream which can take user input.
+- **System.in.read()** can take input from user.
+- But the problem is, this read() method returns the ASCII value of the input. So, It is not convenient to use this approach.
+
+### Input with BufferReader-
+- BufferReader is a class in Java which gives us some methods to handle this user input problem. To use BufferReader we need to pass object of InputStream class.
+  `InputStreamReader in = new InputStreamReader(System.in);
+  BufferedReader bf = new BufferedReader(in);
+  int num = Integer.parseInt(bf.readLine());
+  System.out.println(num);
+  bf.close();`
+- readLine method takes the user input.
+- Always close the BufferReader after using it, It is a resource it's better to close a resource if are done using it.
+
+### User Input with Scanner class-
+-Whatever approach we have seen till now is not super convenient. So what can we do? Java gives us another in-built class named Scanner to solve this problem. Scanner makes life super easy while handling user input.
+`Scanner scanner = new Scanner(System.in);
+System.out.println("Enter Your Name:");
+String name = scanner.nextLine();
+System.out.println("Your name is " + name);
+System.out.println("Enter your Age:");
+int age = scanner.nextInt();
+System.out.println("Your age is "+ age);
+System.out.println("Enter your favorite sport:");
+scanner.nextLine();
+String sport = scanner.nextLine();
+System.out.println("Your favourite sport is " + sport);`
+
+## RegEx in Java-
